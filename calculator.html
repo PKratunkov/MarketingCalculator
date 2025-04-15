@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Budget Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="calculator-container">
+        <!-- Language Selector -->
+        <div class="language-selector">
+            <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="bg">Български</option>
+                <option value="de">Deutsch</option>
+                <option value="es">Español</option>
+            </select>
+        </div>
+        
+        <!-- Calculator Title -->
+        <h1 data-i18n="calculator_title">Marketing Budget Calculator</h1>
+        
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-step active" data-step="1" data-i18n="business_details">Business Details</div>
+                <div class="progress-step" data-step="2" data-i18n="platform_selection">Platform Selection</div>
+                <div class="progress-step" data-step="3" data-i18n="budget_results">Budget & Results</div>
+            </div>
+        </div>
+        
+        <!-- Page 1: Business Information -->
+        <div class="page active" id="page1">
+            <h2 data-i18n="page1_title">Business Information</h2>
+            
+            <div class="form-content">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="industrySelect" data-i18n="business_niche">Business Niche</label>
+                        <select id="industrySelect" required>
+                            <option value="" data-i18n="select_niche">Select Niche</option>
+                            <option value="ecommerce" data-i18n="ecommerce">E-commerce</option>
+                            <option value="saas" data-i18n="saas">SaaS</option>
+                            <option value="local" data-i18n="local">Local Business</option>
+                            <option value="education" data-i18n="education">Education</option>
+                            <option value="health" data-i18n="health">Health & Wellness</option>
+                            <option value="finance" data-i18n="finance">Finance</option>
+                            <option value="realestate" data-i18n="realestate">Real Estate</option>
+                            <option value="travel" data-i18n="travel">Travel & Hospitality</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="businessTypeSelect" data-i18n="service_type">Service Type</label>
+                        <select id="businessTypeSelect" required>
+                            <option value="" data-i18n="select_type">Select Type</option>
+                            <option value="physical" data-i18n="physical">Physical Products</option>
+                            <option value="digital" data-i18n="digital">Digital Products</option>
+                            <option value="service" data-i18n="service">Services</option>
+                            <option value="subscription" data-i18n="subscription">Subscription</option>
+                            <option value="course" data-i18n="course">Online Course</option>
+                            <option value="app" data-i18n="app">Mobile App</option>
+                            <option value="consulting" data-i18n="consulting">Consulting</option>
+                            <option value="membership" data-i18n="membership">Membership</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="locationSelect" data-i18n="region">Region</label>
+                        <select id="locationSelect" required>
+                            <option value="" data-i18n="select_region">Select Region</option>
+                            <option value="us" data-i18n="us">United States</option>
+                            <option value="eu" data-i18n="eu">European Union</option>
+                            <option value="uk" data-i18n="uk">United Kingdom</option>
+                            <option value="bg" data-i18n="bg">Bulgaria</option>
+                            <option value="other" data-i18n="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn next-btn" data-i18n="next">Next</button>
+            </div>
+        </div>
+        
+        <!-- Page 2: Platform Selection -->
+        <div class="page" id="page2">
+            <h2 data-i18n="page2_title">Campaign Selection</h2>
+            
+            <div class="platform-selector">
+                <!-- Meta Platform Option -->
+                <div class="platform-option" data-platform="meta">
+                    <img src="meta-logo.png" alt="Meta Ads" class="platform-logo">
+                    <span data-i18n="meta_ads">Meta Ads</span>
+                    <div class="campaign-info-container">
+                        <span class="campaign-info-icon">i</span>
+                        <div class="campaign-info">
+                            <p>Facebook & Instagram ads for brand awareness, engagement, and conversions.</p>
+                        </div>
+                    </div>
+                    <div class="campaign-select-container">
+                        <label for="meta-campaign-type" class="campaign-select-label" data-i18n="campaign_type">Campaign Type:</label>
+                        <select id="meta-campaign-type" class="campaign-type-select">
+                            <option value="" data-i18n="select_campaign">Select campaign type</option>
+                            <option value="awareness" data-i18n="awareness">Brand Awareness</option>
+                            <option value="traffic" data-i18n="traffic">Website Traffic</option>
+                            <option value="engagement" data-i18n="engagement">Social Engagement</option>
+                            <option value="leads" data-i18n="leads">Lead Generation</option>
+                            <option value="sales" data-i18n="sales">Sales</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Google Platform Option -->
+                <div class="platform-option" data-platform="google">
+                    <img src="https://www.gstatic.com/images/branding/product/2x/googleg_48dp.png" alt="Google Ads" class="platform-logo">
+                    <span data-i18n="google_ads">Google Ads</span>
+                    <div class="campaign-info-container">
+                        <span class="campaign-info-icon">i</span>
+                        <div class="campaign-info">
+                            <p>Search, Display, Shopping and YouTube video campaigns for all marketing goals.</p>
+                        </div>
+                    </div>
+                    <div class="campaign-select-container">
+                        <label for="google-campaign-type" class="campaign-select-label" data-i18n="campaign_type">Campaign Type:</label>
+                        <select id="google-campaign-type" class="campaign-type-select">
+                            <option value="" data-i18n="select_campaign">Select campaign type</option>
+                            <option value="search" data-i18n="search">Search</option>
+                            <option value="display" data-i18n="display">Display</option>
+                            <option value="shopping" data-i18n="shopping">Shopping</option>
+                            <option value="video" data-i18n="video">Video</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- TikTok Platform Option -->
+                <div class="platform-option" data-platform="tiktok">
+                    <img src="tiktok-logo.png" alt="TikTok Ads" class="platform-logo">
+                    <span data-i18n="tiktok_ads">TikTok Ads</span>
+                    <div class="campaign-info-container">
+                        <span class="campaign-info-icon">i</span>
+                        <div class="campaign-info">
+                            <p>Short-form video ads for high engagement with younger audiences.</p>
+                        </div>
+                    </div>
+                    <div class="campaign-select-container">
+                        <label for="tiktok-campaign-type" class="campaign-select-label" data-i18n="campaign_type">Campaign Type:</label>
+                        <select id="tiktok-campaign-type" class="campaign-type-select">
+                            <option value="" data-i18n="select_campaign">Select campaign type</option>
+                            <option value="awareness" data-i18n="awareness">Brand Awareness</option>
+                            <option value="traffic" data-i18n="traffic">Website Traffic</option>
+                            <option value="conversions" data-i18n="conversions">Conversions</option>
+                            <option value="app_install" data-i18n="app_install">App Install</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn back-btn" data-i18n="previous">Previous</button>
+                <button class="nav-btn next-btn" data-i18n="next">Next</button>
+            </div>
+        </div>
+        
+        <!-- Page 3: Budget & Results -->
+        <div class="page" id="page3">
+            <h2 data-i18n="page3_title">Budget & Results</h2>
+            
+            <div class="budget-section">
+                <div class="form-group">
+                    <label for="budgetInput" data-i18n="daily_budget">Daily Budget</label>
+                    <div class="budget-container">
+                        <div class="budget-input-group">
+                            <select id="budgetCurrency" class="currency-select">
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                                <option value="BGN">BGN</option>
+                            </select>
+                            <input type="number" id="budgetInput" min="5" max="1000" value="50" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label data-i18n="adjust_budget">Adjust Daily Budget</label>
+                    <div class="budget-slider-container">
+                        <span class="min-value">$5</span>
+                        <input type="range" id="budgetSlider" min="5" max="1000" value="50" class="slider">
+                        <span class="max-value">$1000</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <h3 data-i18n="expected_results">Expected Results</h3>
+                
+                <div class="time-period-selector">
+                    <span data-i18n="time_period">Time Period</span>
+                    <button class="time-btn selected" data-period="weekly" data-i18n="weekly">Weekly</button>
+                    <button class="time-btn" data-period="monthly" data-i18n="monthly">Monthly</button>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric" id="reachMetric">
+                        <span class="metric-label" data-i18n="estimated_reach">Estimated Reach</span>
+                        <span class="metric-value" id="reachValue">0</span>
+                    </div>
+                    <div class="metric" id="clicksMetric">
+                        <span class="metric-label" data-i18n="expected_clicks">Expected Clicks</span>
+                        <span class="metric-value" id="clicksValue">0</span>
+                    </div>
+                    <div class="metric" id="conversionsMetric">
+                        <span class="metric-label" data-i18n="potential_conversions">Potential Conversions</span>
+                        <span class="metric-value" id="conversionsValue">0</span>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="resultsChart"></canvas>
+                </div>
+                <div class="chart-hint" data-i18n="chart_hint">Click on bars to increase budget and see updated results</div>
+            </div>
+            
+            <div class="navigation">
+                <button class="nav-btn back-btn" data-i18n="previous">Previous</button>
+                <button class="nav-btn reset-btn" data-i18n="reset">Reset Calculator</button>
+            </div>
+        </div>
+        
+        <!-- Footer with Copyright and Disclaimer -->
+        <div class="calculator-footer">
+            <div class="footer-content">
+                <span data-i18n="made_by">Created by</span> <span class="brand-name">PushKraftMedia</span>
+            </div>
+            <div class="disclaimer" data-i18n="disclaimer">
+                Results are based on clients we have worked with and are approximate predictions. Actual campaign performance may vary based on industry, target audience, creative quality, and market conditions.
+            </div>
+        </div>
+    </div>
+    
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

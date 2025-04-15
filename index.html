@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Budget Calculator</title>
+    <style>
+        :root {
+            --primary-color: #4a86e8;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #ddd;
+            --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .description {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .option-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .option-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .option-card p {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #3b6fc7;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Marketing Budget Calculator</h1>
+            <p class="description">
+                Plan your digital marketing budget effectively with our interactive calculator. 
+                Get insights into potential reach, clicks, and conversions across different platforms.
+            </p>
+        </header>
+
+        <div class="options">
+            <div class="option-card">
+                <h2>Use Calculator</h2>
+                <p>Try our marketing budget calculator directly in your browser. Get instant estimates and insights for your campaigns.</p>
+                <a href="calculator.html" class="btn">Open Calculator</a>
+            </div>
+
+            <div class="option-card">
+                <h2>Embed Calculator</h2>
+                <p>Want to add this calculator to your website? Get the embed code and integrate it seamlessly.</p>
+                <a href="embed.html" class="btn">Get Embed Code</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2024 Marketing Budget Calculator. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html> 

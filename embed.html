@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed Marketing Calculator</title>
+    <style>
+        :root {
+            --primary-color: #4a86e8;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #ddd;
+            --success-color: #28a745;
+            --hover-color: #357abd;
+            --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .description {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .embed-section {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+
+        .embed-code {
+            background: white;
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: monospace;
+            margin: 10px 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .copy-button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .copy-button:hover {
+            background: var(--hover-color);
+        }
+
+        .instructions {
+            margin-top: 30px;
+        }
+
+        .instructions ol {
+            padding-left: 20px;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .embed-code {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Embed Marketing Calculator</h1>
+        <p class="description">Add our marketing calculator to your website by copying and pasting the code below.</p>
+
+        <div class="embed-section">
+            <h2>Embed Code</h2>
+            <div class="embed-code" id="embedCode">
+<iframe 
+    src="https://your-domain.com/marketing-calculator/calculator.html" 
+    style="width: 100%; max-width: 900px; height: 800px; border: none; display: block; margin: 0 auto;"
+    title="Marketing Budget Calculator"
+></iframe></div>
+            <button class="copy-button" onclick="copyEmbedCode()">Copy Code</button>
+        </div>
+
+        <div class="instructions">
+            <h2>Integration Instructions</h2>
+            <ol>
+                <li>Copy the embed code above using the "Copy Code" button.</li>
+                <li>Open your website's HTML file or content management system where you want to add the calculator.</li>
+                <li>Paste the embed code into your HTML file or content editor.</li>
+                <li>Replace "your-domain.com" in the src attribute with your actual domain where the calculator is hosted.</li>
+                <li>Adjust the width and height values in the style attribute if needed to match your website's layout.</li>
+                <li>Save your changes and test the embedded calculator on your website.</li>
+            </ol>
+        </div>
+
+        <a href="calculator.html" class="back-link">← Back to Calculator</a>
+    </div>
+
+    <script>
+        function copyEmbedCode() {
+            const embedCode = document.getElementById('embedCode').innerText;
+            const textarea = document.createElement('textarea');
+            textarea.value = embedCode;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            const button = document.querySelector('.copy-button');
+            const originalText = button.innerText;
+            button.innerText = 'Copied!';
+            button.style.backgroundColor = 'var(--success-color)';
+            
+            setTimeout(() => {
+                button.innerText = originalText;
+                button.style.backgroundColor = '';
+            }, 2000);
+        }
+    </script>
+</body>
+</html> 
